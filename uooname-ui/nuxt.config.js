@@ -2,8 +2,8 @@ import colors from 'vuetify/es5/util/colors'
 
 export default {
   head: {
-    titleTemplate: '%s - honitor',
-    title: 'honitor',
+    titleTemplate: 'uooname | %s',
+    title: 'uooname',
     htmlAttrs: {
       lang: 'ko'
     },
@@ -18,13 +18,12 @@ export default {
     ]
   },
 
-  loading: '~/components/LoadingBar.vue',
-
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
     "~/assets/common.scss",
     "~/assets/main.scss",
     "~/assets/footer.scss",
+    "~/assets/mobile.scss",
   ],
 
   plugins: [

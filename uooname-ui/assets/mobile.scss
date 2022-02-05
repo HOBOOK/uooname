@@ -1,0 +1,31 @@
+
+.mobile-inline {
+  display:none !important;
+}
+.mobile-inline-block {
+  display:none !important;
+}
+.mobile-flex {
+  display:none !important;
+}
+.mobile-block {
+  display: none !important;
+}
+
+@media (max-width: 767px){
+  .mobile-none {
+    display:none !important;
+  }
+  .mobile-inline {
+    display:inline !important;
+  }
+  .mobile-inline-block {
+    display:inline-block !important;
+  }
+  .mobile-flex {
+    display:flex !important;
+  }
+  .mobile-block {
+    display: block !important;
+  }
+}

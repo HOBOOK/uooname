@@ -6,26 +6,50 @@
       elevate-on-scroll
       color="white"
       elevation="1"
-    >
+    > 
       <v-container>
-        <v-row align="center" justify="center">
-          <v-toolbar-title v-text="title" />
+        <v-row align="center" justify="center" no-gutters>
+          <uooNameLogo/> 
+          <v-toolbar-title class="ml-2 logo-font" v-text="title" />
           <v-spacer />
           <v-btn
             icon
             @click.stop="rightDrawer = !rightDrawer"
+            class="mobile-inline"
+            small
           >
             <v-icon>mdi-menu</v-icon>
           </v-btn>
         </v-row>
       </v-container>
     </v-app-bar>
-
-    <v-main>
-      <v-container style="min-height:100vh;">
+    
+    <v-main style="min-height:100vh;">
+      <v-container >
         <Nuxt />
       </v-container>
     </v-main>
+
+    <v-footer
+      app
+      absolute
+      color="transparent"
+    >
+      <v-container>
+        <v-row class="my-2" justify="center" align="center" no-gutters>
+          <ul>
+            <li><v-icon>mdi-facebook</v-icon></li>
+            <li><v-icon>mdi-facebook</v-icon></li>
+            <li><v-icon>mdi-facebook</v-icon></li>
+          </ul>
+        </v-row>
+        <v-row class="my-2 text-caption" style="opacity:0.5" justify="center" align="center">
+          Copyright © 박경호 {{ new Date().getFullYear() }}. All rights reserved.
+        </v-row>
+        <v-row class="my-4" justify="center" align="center" no-gutters>
+        </v-row>
+      </v-container>
+    </v-footer>
 
     <v-navigation-drawer
       v-model="rightDrawer"
@@ -45,25 +69,7 @@
       </v-list>
     </v-navigation-drawer>
 
-    <v-footer
-      app
-      absolute
-    >
-      <v-container>
-        <v-row class="my-2" justify="center" align="center" no-gutters>
-          <ul>
-            <li><v-icon>mdi-facebook</v-icon></li>
-            <li><v-icon>mdi-facebook</v-icon></li>
-            <li><v-icon>mdi-facebook</v-icon></li>
-          </ul>
-        </v-row>
-        <v-row class="my-2 text-caption" style="opacity:0.5" justify="center" align="center">
-          Copyright © 박경호 {{ new Date().getFullYear() }}. All rights reserved.
-        </v-row>
-        <v-row class="my-4" justify="center" align="center" no-gutters>
-        </v-row>
-      </v-container>
-    </v-footer>
+    
   </v-app>
 </template>
 
@@ -72,14 +78,10 @@ export default {
   data () {
     return {
       rightDrawer: false,
-      title: 'GHistory'
+      title: 'Uooname'
     }
   },
   mounted() {
-    this.$nextTick(()=> {
-      this.$nuxt.$loading.start()
-      setTimeout(() => this.$nuxt.$loading.finish(), 3000)
-    })
   }
 }
 </script>
