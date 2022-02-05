@@ -14,7 +14,10 @@ export default {
       { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'preconnect', href: 'https://fonts.gstatic.com' },
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap' },
+      { rel: 'stylesheet', href: 'http://fonts.googleapis.com/earlyaccess/nanumgothic.css'}
     ]
   },
 
@@ -46,6 +49,12 @@ export default {
 
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
+    treeShake: true,
+    defaultAssets: {
+      font: {
+        family: 'Noto Sans KR'
+      }
+    },
     theme: {
       dark: false,
       themes: {

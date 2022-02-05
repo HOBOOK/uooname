@@ -1,3 +1,4 @@
+
 html {
     overflow-y: auto !important;
     &::-webkit-scrollbar {
@@ -44,7 +45,7 @@ html {
 }
 
 .v-application{
-  font-family: "Inter", 'NotoSansKR', "Helvetica Neue", Helvetica, Arial, "맑은 고딕", malgun gothic, "돋움", Dotum, sans-serif, "Apple Color Emoji", "Noto Color Emoji";
+  font-size: $font-size-root;
 
   .container{
     max-width:$container-max-size-root !important;
@@ -52,9 +53,14 @@ html {
 }
 
 .logo-font {
-  background: linear-gradient(70deg, #d16ac2, 30%, #6347e2);
-  background: -webkit-linear-gradient(70deg, #d16ac2, 30%, #6347e2);
+  background: linear-gradient(450deg, #d16ac2, 50%, #6347e2);
+  background: -webkit-linear-gradient(45deg, #d16ac2, 50%, #6347e2);
   -webkit-text-fill-color: transparent;
-  font-weight: bold;
   -webkit-background-clip: text;
+  cursor:pointer;
+  font-size: 16px !important;
+  text-transform: uppercase;
+  letter-spacing:0px;
+  word-spacing:-3px;
+  font-weight: 700;
 }

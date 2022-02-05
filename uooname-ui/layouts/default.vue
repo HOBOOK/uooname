@@ -3,15 +3,16 @@
     <v-app-bar
       fixed
       app
-      elevate-on-scroll
       color="white"
       dense
+      elevation="0"
+      style="border-bottom:1px solid #eee !important;"
     > 
       <v-container>
         <v-row align="center" no-gutters>
           <div @click="$router.push('/')" style="cursor:pointer;" class="d-flex align-center">
             <uooNameLogo @click="$router.push('/')" style="cursor:pointer;"/> 
-            <v-toolbar-title @click="$router.push('/')" class="ml-2 logo-font" style="cursor:pointer;" v-text="title" />
+            <v-toolbar-title @click="$router.push('/')" class="ml-1 logo-font" v-text="title" />
           </div>
           <v-spacer />
           <v-btn
@@ -80,7 +81,7 @@ export default {
   data () {
     return {
       rightDrawer: false,
-      title: 'Uooname'
+      title: 'Uoo name'
     }
   },
   mounted() {
