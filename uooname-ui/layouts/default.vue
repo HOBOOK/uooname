@@ -5,7 +5,7 @@
       app
       elevate-on-scroll
       color="white"
-      elevation="1"
+      dense
     > 
       <v-container>
         <v-row align="center" justify="center" no-gutters>
