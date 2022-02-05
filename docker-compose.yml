@@ -1,0 +1,22 @@
+version: '3'
+services:
+    uooname-proxy:
+        image: nginx:latest
+        container_name: uooname-proxy
+        ports: 
+            - "80:80"
+        volumes:
+            - ./uooname-proxy/nginx-dev.conf:/etc/nginx/nginx.conf
+        restart: "unless-stopped"
+    uooname-ui:
+        build:
+            context: ./uooname-ui
+        image: uooname-ui
+        container_name: uooname-ui
+        environment:
+            - HOST=0.0.0.0
+        ports:
+            - "3000:3000"
+        volumes:
+            - ./vridge-ui/app:/var/www/app
+        restart: "unless-stopped"
