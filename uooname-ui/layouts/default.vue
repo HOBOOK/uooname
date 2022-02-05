@@ -8,9 +8,11 @@
       dense
     > 
       <v-container>
-        <v-row align="center" justify="center" no-gutters>
-          <uooNameLogo/> 
-          <v-toolbar-title class="ml-2 logo-font" v-text="title" />
+        <v-row align="center" no-gutters>
+          <div @click="$router.push('/')" style="cursor:pointer;" class="d-flex align-center">
+            <uooNameLogo @click="$router.push('/')" style="cursor:pointer;"/> 
+            <v-toolbar-title @click="$router.push('/')" class="ml-2 logo-font" style="cursor:pointer;" v-text="title" />
+          </div>
           <v-spacer />
           <v-btn
             icon
