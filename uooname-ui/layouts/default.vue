@@ -8,11 +8,10 @@
       elevation="0"
       style="border-bottom:1px solid #eee !important;"
     > 
-      <v-container>
-        <v-row align="center" no-gutters>
+      <v-container class="pa-0">
+        <v-row align="center" no-gutters style="height:48px;">
           <div @click="$router.push('/')" style="cursor:pointer;" class="d-flex align-center">
-            <uooNameLogo @click="$router.push('/')" style="cursor:pointer;"/> 
-            <v-toolbar-title @click="$router.push('/')" class="ml-1 logo-font" v-text="title" />
+            <uooNameLogo @click="$router.push('/')" style="cursor:pointer;"/>
           </div>
           <v-spacer />
           <v-btn

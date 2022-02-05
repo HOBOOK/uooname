@@ -1,15 +1,14 @@
 <template>
   <img
-    class="VuetifyLogo"
-    alt="Vuetify Logo"
-    src="/vuetify-logo.svg"
+    class="uooname-logo"
+    alt="uooname logo"
+    src="/logo-title.png"
   >
 </template>
 
 <style>
-.VuetifyLogo {
-  height: 18px;
-  width: 18px;
+.uooname-logo {
+  max-height: 42px;
   transform: rotateY(560deg);
   animation: turn 3.5s ease-out forwards 1s;
 }
