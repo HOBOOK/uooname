@@ -2,7 +2,7 @@
   <v-row no-gutters>
     <v-col cols="12">
       <v-card outlined height="400" class="mb-4 rounded-lg">
-        <v-card-title>이름 정보</v-card-title>
+        <v-card-title>분석</v-card-title>
         <v-card-text>
           {{name}}
         </v-card-text>

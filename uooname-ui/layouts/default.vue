@@ -8,7 +8,7 @@
       elevation="0"
       style="border-bottom:1px solid #eee !important;"
     > 
-      <v-container class="pa-0">
+      <v-container class="py-0 px-2">
         <v-row align="center" no-gutters style="height:48px;">
           <div @click="$router.push('/')" style="cursor:pointer;" class="d-flex align-center">
             <uooNameLogo @click="$router.push('/')" style="cursor:pointer;"/>
@@ -26,8 +26,8 @@
       </v-container>
     </v-app-bar>
     
-    <v-main style="min-height:100vh;">
-      <v-container >
+    <v-main>
+      <v-container style="min-height:calc(100vh - 48px);">
         <Nuxt />
       </v-container>
     </v-main>
