@@ -50,6 +50,7 @@ export default {
   methods:{
     search() {
       console.log(this.keyword)
+      this.$router.push('/names/' + this.keyword)
     },
   }
   

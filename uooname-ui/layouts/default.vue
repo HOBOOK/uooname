@@ -38,17 +38,15 @@
       color="transparent"
     >
       <v-container>
-        <v-row class="my-2" justify="center" align="center" no-gutters>
+        <v-row class="my-2"  align="center" no-gutters>
           <ul>
             <li><v-icon>mdi-facebook</v-icon></li>
             <li><v-icon>mdi-facebook</v-icon></li>
             <li><v-icon>mdi-facebook</v-icon></li>
           </ul>
         </v-row>
-        <v-row class="my-2 text-caption" style="opacity:0.5" justify="center" align="center">
+        <v-row class="my-2 text-caption" style="opacity:0.5" align="center">
           Copyright © 박경호 {{ new Date().getFullYear() }}. All rights reserved.
-        </v-row>
-        <v-row class="my-4" justify="center" align="center" no-gutters>
         </v-row>
       </v-container>
     </v-footer>

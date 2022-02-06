@@ -5,6 +5,13 @@ $container-max-size-root: 1400px;
 $font-size-root: 16px;
 
 //colors
-$base-color: #c6538c;
+$base-color: #6347e2;
 $font-base-color: #222;
 $font-dark-color: #f5f5f5;
+
+//rounded
+$border-radius-root: 0.4rem;
+$rounded: (
+  'sm': $border-radius-root / 3,
+  'lg': $border-radius-root * 2
+);
