@@ -20,7 +20,8 @@
               hide-details
               solo
               style="max-width:600px; box-shadow:none;"
-              @click:append="search"
+              @click:append="$common.search($router,keyword, () => {keyword = ''})"
+              @keydown.enter.prevent="$common.search($router,keyword, () => {keyword = ''})"
           />
         </v-row>
       </div>
@@ -48,10 +49,6 @@ export default {
     }
   },
   methods:{
-    search() {
-      console.log(this.keyword)
-      this.$router.push('/names/' + this.keyword)
-    },
   }
   
 }

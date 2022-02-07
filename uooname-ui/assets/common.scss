@@ -50,6 +50,16 @@ html {
   .container{
     max-width:$container-max-size-root !important;
   }
+
+  .v-input{
+    &.v-input--dense{
+      font-size:14px !important;
+      .v-label{
+        font-size:14px !important;
+      }
+    }
+  }
+  
 }
 
 .logo-font {

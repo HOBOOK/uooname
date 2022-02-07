@@ -25,6 +25,7 @@ export default {
   css: [
     "~/assets/common.scss",
     "~/assets/main.scss",
+    "~/assets/content.scss",
     "~/assets/footer.scss",
     "~/assets/mobile.scss",
   ],

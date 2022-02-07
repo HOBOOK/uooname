@@ -1,5 +1,5 @@
 <template>
-  <v-row no-gutters>
+  <v-row no-gutters v-if="nameInfo !== null">
     <v-col cols="12">
       <v-card outlined height="400" class="mb-4 rounded-lg">
         <v-card-title>분석</v-card-title>
@@ -25,12 +25,11 @@ export default {
   },
   data () {
     return {
-      name:''
+      nameInfo:null
     }
   },
   mounted(){
-    console.log(this.$route.params.name)
-    this.name = this.$route.params.name
+    this.nameInfo = this.$store.state.nameInfo
   },
   methods:{
   }

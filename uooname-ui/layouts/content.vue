@@ -13,6 +13,22 @@
           <div @click="$router.push('/')" style="cursor:pointer;" class="d-flex align-center">
             <uooNameLogo @click="$router.push('/')" style="cursor:pointer;"/>
           </div>
+
+          <v-text-field
+            v-model="keyword"
+            append-icon="mdi-magnify"
+            label="이름을 검색해보세요."
+            hide-details
+            solo
+            flat
+            background-color="#f8f8f8"
+            dense
+            class="ml-4 rounded-lg"
+            style="max-width:240px; box-shadow:none !important;"
+            @click:append="$common.search($router,keyword, () => {keyword = ''})"
+            @keydown.enter.prevent="$common.search($router,keyword, () => {keyword = ''})"
+          />
+
           <v-spacer />
           <v-btn
             icon
@@ -29,11 +45,12 @@
     <v-main>
       <v-container v-if="loading" style="min-height:calc(100vh - 48px);">
         <v-row no-gutters align="center" justify="center" style="height:100%;">
-          <v-progress-circular indeterminate color="primary" :size="32" width="4"/>
+          <v-img src="/loading.svg" height="64" max-width="64" contain/>
           <span class="ml-4">이름 검색 중...</span>
         </v-row>
       </v-container>
       <v-container v-else style="min-height:calc(100vh - 48px);">
+        
         <v-row no-gutters class="mt-16">
           <v-col class="mx-2 mb-4 px-2 col-md-auto col-12">
             <v-card class="rounded-lg" elevation="0" width="240" outlined
@@ -89,20 +106,86 @@
               </v-navigation-drawer>
             </v-card>
           </v-col>
-          <v-col class="mx-2 px-2">
+
+          <v-col class="mx-2 px-2 content-layout" :class="{active : pageEffect}">
               <v-card class="rounded-lg" outlined
                 style="position:sticky !important; top:60px; z-index:10;"
-                v-if="$route.params.name"
+                v-if="$route.params.name && $store.state.nameInfo !== null"
               >
-                <v-card-title v-text="$route.params.name"></v-card-title>
+                <v-card-title>
+                  {{$route.params.name}}
+                  <v-spacer/>
+
+                  <u-dialog
+                    ref="starDialog"
+                    alert
+                    title="즐겨찾기"
+                  >
+                    <template v-slot:button>
+                      <v-btn icon @click="$refs.starDialog.open(), $store.state.nameInfo.bookmark = !$store.state.nameInfo.bookmark">
+                        
+                        <v-icon v-text="$store.state.nameInfo.bookmark === true ? 'mdi-star' : 'mdi-star-outline'"></v-icon>
+                      </v-btn>
+                    </template>
+
+                    <template v-slot:content>
+                      <v-row no-gutters align="center" justify="center" style="height:100%;">
+                        즐겨찾기!
+                      </v-row>
+                    </template>
+
+                    <template v-slot:actionButton>
+                      <v-btn
+                        @click="$refs.starDialog.close()"
+                        small
+                        block
+                        elevation="0"
+                        :ripple="false"
+                      >
+                        <span>확인</span>
+                      </v-btn>
+                    </template>
+                  </u-dialog>
+
+                  <u-dialog
+                    ref="thumbDialog"
+                    alert
+                    title="좋아요"
+                  >
+                    <template v-slot:button>
+                      <v-btn icon @click="$refs.thumbDialog.open(), $store.state.nameInfo.heart = !$store.state.nameInfo.heart">
+                        <v-icon v-text="$store.state.nameInfo.heart === true ? 'mdi-heart' : 'mdi-heart-outline'"></v-icon>
+                      </v-btn>
+                    </template>
+
+                    <template v-slot:content>
+                      <v-row no-gutters align="center" justify="center" style="height:100%;">
+                        좋아요!!
+                      </v-row>
+                    </template>
+
+                    <template v-slot:actionButton>
+                      <v-btn
+                        @click="$refs.thumbDialog.close()"
+                        small
+                        block
+                        elevation="0"
+                        :ripple="false"
+                      >
+                        <span>확인</span>
+                      </v-btn>
+                    </template>
+                  </u-dialog>
+                  
+                  
+
+                </v-card-title>
               </v-card>
             <Nuxt class="mt-4"/>
           </v-col>
         </v-row>
       </v-container>
     </v-main>
-
-    
 
     <v-footer
       app
@@ -122,10 +205,6 @@
         </v-row>
       </v-container>
     </v-footer>
-
-   
-
-    
   </v-app>
 </template>
 
@@ -133,20 +212,56 @@
 export default {
   data () {
     return {
+      pageEffect:false,
       loading: false,
       selectedMenu:0,
       rightDrawer: false,
-      title: 'Uoo name'
+      title: 'Uoo name',
+      keyword:'',
+      name:''
     }
   },
   created() {
     this.loading = true
+    this.pageEffect = true
   },
   mounted() {
-    this.loading = true
-    setTimeout(()=>{
-      this.loading = false
-    }, 500)
+    this.getNameInfo()
+  },
+  watch:{
+    async '$route.params.name'() {
+      this.getNameInfo()
+      
+    } 
+  },
+  methods:{
+    // 페이지 이펙트
+    routingEffect(){
+      this.pageEffect = !this.pageEffect
+      setTimeout(() => {
+        this.pageEffect = !this.pageEffect
+      }, 200);
+    },
+    // 이름 정보 가져오는 함수
+    getNameInfo() {
+      if(this.$route.params.name && this.name !== this.$route.params.name) {
+        
+        this.loading = true
+        const nameInfo = {
+          name: this.$route.params.name,
+          description:'test',
+          bookmark:false,
+          heart:false,
+        }
+        this.$store.commit('SET_NAME_INFO', nameInfo)
+        setTimeout(()=>{
+          this.name = this.$route.params.name
+          this.loading = false
+          this.routingEffect()
+        },500)
+      }
+      
+    }
   }
 }
 </script>
