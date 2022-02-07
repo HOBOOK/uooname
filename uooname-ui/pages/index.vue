@@ -4,7 +4,7 @@
       class="main-title"
     >
       <div class="main-title-content">
-        <v-row no-gutters justify="center" align="center" class="my-2py-2">
+        <v-row no-gutters justify="center" align="center" class="my-2 py-2">
             <v-col cols="12" align="center" class="my-2">
                 <h1>내 이름의 누군가에 대한 궁금증</h1>
             </v-col>

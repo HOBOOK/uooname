@@ -27,7 +27,7 @@
     </v-app-bar>
     
     <v-main>
-      <v-container style="min-height:calc(100vh - 48px);">
+      <v-container>
         <Nuxt />
       </v-container>
     </v-main>
