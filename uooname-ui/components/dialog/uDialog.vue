@@ -23,7 +23,7 @@
         <v-spacer/>
         {{title}}
         <v-spacer/>
-        <v-avatar size="28" class="u-dialog-close">
+        <v-avatar size="28" class="u-dialog-close" v-if="persistent">
           <v-icon class="font-weight-bold" @click="clickNo" style="font-size:16px;">mdi-close</v-icon>
         </v-avatar>
       </v-card-title>
