@@ -190,7 +190,6 @@
     <v-footer
       app
       absolute
-      color="transparent"
     >
       <v-container>
         <v-row class="my-2"  align="center" no-gutters>
@@ -210,6 +209,16 @@
 
 <script>
 export default {
+  head () {
+    return {
+      title: this.name,
+      meta: [{ 
+        hid: 'og-title', 
+        property: 'og:title', 
+        content:this.name 
+      }]
+    }
+  },
   data () {
     return {
       pageEffect:false,

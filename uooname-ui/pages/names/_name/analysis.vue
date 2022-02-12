@@ -13,16 +13,6 @@
 <script>
 export default {
   layout: 'content',
-  head () {
-    return {
-      title: '이름',
-      meta: [{ 
-        hid: 'og-title', 
-        property: 'og:title', 
-        content: '이름' 
-      }]
-    }
-  },
   data () {
     return {
       nameInfo:null

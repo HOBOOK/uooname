@@ -1,5 +1,7 @@
 <template>
+
   <v-app>
+    
     <v-app-bar
       fixed
       app
@@ -8,6 +10,7 @@
       elevation="0"
       style="border-bottom:1px solid #eee !important;"
     > 
+    
       <v-container class="py-0 px-2">
         <v-row align="center" no-gutters style="height:48px;">
           <div @click="$router.push('/')" style="cursor:pointer;" class="d-flex align-center">
@@ -35,7 +38,6 @@
     <v-footer
       app
       absolute
-      color="transparent"
     >
       <v-container>
         <v-row class="my-2"  align="center" no-gutters>
@@ -69,7 +71,6 @@
       </v-list>
     </v-navigation-drawer>
 
-    
   </v-app>
 </template>
 

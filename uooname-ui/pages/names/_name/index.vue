@@ -2,7 +2,13 @@
   <v-row no-gutters v-if="nameInfo !== null">
     <v-col cols="12">
       <v-card outlined height="400" class="mb-4 rounded-lg">
-        <v-card-title>이름 정보</v-card-title>
+        <v-card-title>
+          <v-row no-gutters align="center">
+            이름 정보
+            <v-spacer/>
+            <span class="grey--text text-caption"> 22.03.21 updated </span>
+          </v-row>
+        </v-card-title>
         <v-card-text>
           {{nameInfo.name}}
         </v-card-text>
@@ -13,16 +19,6 @@
 <script>
 export default {
   layout: 'content',
-  head () {
-    return {
-      title: '이름',
-      meta: [{ 
-        hid: 'og-title', 
-        property: 'og:title', 
-        content: '이름' 
-      }]
-    }
-  },
   data () {
     return {
       nameInfo:null

@@ -2,7 +2,7 @@ import colors from 'vuetify/es5/util/colors'
 
 export default {
   head: {
-    titleTemplate: 'uooname | %s',
+    titleTemplate: '유네임 | %s',
     title: 'uooname',
     htmlAttrs: {
       lang: 'ko'
@@ -53,14 +53,23 @@ export default {
     treeShake: true,
     defaultAssets: {
       font: {
-        family: 'Noto Sans KR'
+        family: 'Noto Sans Korean'
       }
     },
     theme: {
       dark: false,
       themes: {
+        light:{
+          primary: '#6347e2',
+          accent: colors.grey.darken3,
+          secondary: colors.amber.darken3,
+          info: colors.teal.lighten1,
+          warning: colors.amber.base,
+          error: colors.deepOrange.accent4,
+          success: colors.green.accent3,
+        },
         dark: {
-          primary: colors.blue.darken2,
+          primary: '#536DFE',
           accent: colors.grey.darken3,
           secondary: colors.amber.darken3,
           info: colors.teal.lighten1,
