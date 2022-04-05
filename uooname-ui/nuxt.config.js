@@ -1,4 +1,6 @@
 import colors from 'vuetify/es5/util/colors'
+import i18nConfig from "./i18n/config";
+import locales from "./i18n/locales";
 
 export default {
   head: {
@@ -46,7 +48,15 @@ export default {
   ],
 
   modules: [
+    'nuxt-i18n',
   ],
+
+  i18n:{
+    seo: true,
+    locales,
+    defaultLocale: 'ko',
+    vueI18n: i18nConfig,
+  },
 
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
