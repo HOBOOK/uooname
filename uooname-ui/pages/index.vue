@@ -6,24 +6,23 @@
       <div class="main-title-content">
         <v-row no-gutters justify="center" align="center" class="my-2 py-2">
             <v-col cols="12" align="center" class="my-2">
-                <h1 :style="'color:' + $vuetify.theme.themes.light.primary">내 이름의 누군가에 대한 궁금증</h1>
+                <h1>{{$t('index_title')}}</h1>
             </v-col>
             <v-col cols="12" align="center">
-                <p style="opacity:0.8;">내 이름을 검색해보세요.</p>
+                <p style="opacity:0.8;">{{$t('index_subtitle')}}</p>
             </v-col>
         </v-row>
         <v-row no-gutters justify="center" align="center" class="my-4">
           <v-text-field
+              rounded
               v-model="keyword"
               append-icon="mdi-magnify"
-              label="이름을 검색해보세요."
+              :label="$t('index_search_label')"
               hide-details
               solo
               flat
               color="primary"
               style="max-width:600px; box-shadow:none !important;"
-              :style="'border:2px solid ' + $vuetify.theme.themes.light.primary"
-              class="rounded-lg"
               @click:append="$common.search($router,keyword, () => {keyword = ''})"
               @keydown.enter.prevent="$common.search($router,keyword, () => {keyword = ''})"
           />

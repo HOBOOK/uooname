@@ -1,5 +1,5 @@
-import ko from "./messages/ko.js";
-import en from "./messages/en.js";
+import ko from "./dictionary/ko.js";
+import en from "./dictionary/en.js";
 
 export default {
   locale: "ko",

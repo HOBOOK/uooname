@@ -6,7 +6,8 @@ export const strict = false
 
 const store = () => new Vuex.Store({
   state:{
-    nameInfo: null
+    nameInfo: null,
+    locale: 'ko'
   },
   mutations:{
     SET_TOKEN:function(state, token){
@@ -14,6 +15,9 @@ const store = () => new Vuex.Store({
     },
     SET_NAME_INFO: (state, nameInfo) => {
       state.nameInfo = nameInfo
+    },
+    SET_LOCALE: (state, locale) => {
+      state.locale = locale
     }
   },
   actions:{

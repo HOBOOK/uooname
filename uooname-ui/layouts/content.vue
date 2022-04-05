@@ -46,7 +46,7 @@
       <v-container v-if="loading" style="min-height:calc(100vh - 48px);">
         <v-row no-gutters align="center" justify="center" style="height:100%;">
           <v-img src="/loading.svg" height="64" max-width="64" contain/>
-          <span class="ml-4">이름 검색 중...</span>
+          <span class="ml-4">{{$t('loading_search')}}</span>
         </v-row>
       </v-container>
       <v-container v-else style="min-height:calc(100vh - 48px);">

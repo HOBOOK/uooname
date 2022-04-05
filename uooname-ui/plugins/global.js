@@ -10,7 +10,8 @@ const common = {
     if(callback && typeof callback === 'function') {
       callback()
     }
-  }
+  },
+  
 }
 
 // 시간 관련 함수

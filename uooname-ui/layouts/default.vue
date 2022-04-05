@@ -25,6 +25,14 @@
           >
             <v-icon>mdi-menu</v-icon>
           </v-btn>
+
+          <v-select
+            v-model="$i18n.locale"
+            :items="['ko','en']"
+            @change="(item) => {$i18n.locale = item}"
+          >
+
+          </v-select>
         </v-row>
       </v-container>
     </v-app-bar>
