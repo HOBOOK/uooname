@@ -35,6 +35,7 @@ export default {
   plugins: [
     '~/plugins/component.js',
     '~/plugins/global.js',
+    {src:'~/plugins/vuex-persis.js', ssr:false},
     {src:"~plugins/vue-particles",ssr:false},
   ],
 

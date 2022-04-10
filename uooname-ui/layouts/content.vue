@@ -234,6 +234,7 @@ export default {
     this.pageEffect = true
   },
   mounted() {
+    this.getLocale()
     this.getKeywordInfo()
   },
   watch:{
@@ -269,6 +270,10 @@ export default {
         },500)
       }
       
+    },
+
+    getLocale() {
+      this.$i18n.locale = this.$store.state.locale
     }
   }
 }

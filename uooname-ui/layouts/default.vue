@@ -29,7 +29,7 @@
           <v-select
             v-model="$i18n.locale"
             :items="['ko','en']"
-            @change="(item) => {$i18n.locale = item}"
+            @change="(item) => {[$store.commit('SET_LOCALE',item), $i18n.locale= item]}"
           >
 
           </v-select>
@@ -90,7 +90,15 @@ export default {
       title: 'Uoo name'
     }
   },
+  created() {
+  },
   mounted() {
+    this.getLocale()
+  },
+  methods:{
+    getLocale() {
+      this.$i18n.locale = this.$store.state.locale
+    }
   }
 }
 </script>
