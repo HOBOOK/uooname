@@ -74,31 +74,31 @@
                     <v-list-item
                       :ripple="false"
                       class="my-0 py-2 px-6"
-                      @click="$router.push('/names/' + $route.params.name)"
+                      @click="$router.push('/search/' + $route.params.keyword)"
                     >
                       <div :class="selectedMenu === 0 ? 'active' :''" class="content-layout-nav-selector"></div>
                       <v-icon small left>mdi-smart-card-outline</v-icon>
-                      <v-list-item-title class="ml-2">이름 정보</v-list-item-title>
+                      <v-list-item-title class="ml-2">{{$t('keyword_info')}}</v-list-item-title>
                     </v-list-item>
 
                     <v-list-item
                       :ripple="false"
                       class="my-0 py-2 px-6"
-                      @click="$router.push('/names/' + $route.params.name + '/comment')"
+                      @click="$router.push('/search/' + $route.params.keyword + '/comment')"
                     >
                       <div :class="selectedMenu === 1 ? 'active' :''" class="content-layout-nav-selector"></div>
                       <v-icon small left>mdi-comment-outline</v-icon>
-                      <v-list-item-title class="ml-2">코멘트</v-list-item-title>
+                      <v-list-item-title class="ml-2">{{$t('keyword_comment')}}</v-list-item-title>
                     </v-list-item>
 
                     <v-list-item
                       :ripple="false"
                       class="my-0 py-2 px-6"
-                      @click="$router.push('/names/' + $route.params.name + '/analysis')"
+                      @click="$router.push('/search/' + $route.params.keyword + '/analysis')"
                     >
                       <div :class="selectedMenu === 2 ? 'active' :''" class="content-layout-nav-selector"></div>
                       <v-icon small left>mdi-chart-bell-curve</v-icon>
-                      <v-list-item-title class="ml-2">분석</v-list-item-title>
+                      <v-list-item-title class="ml-2">{{$t('keyword_analysis')}}</v-list-item-title>
                     </v-list-item>
 
                   </v-list-item-group>
@@ -110,10 +110,10 @@
           <v-col class="mx-2 px-2 content-layout" :class="{active : pageEffect}">
               <v-card class="rounded-lg" outlined
                 style="position:sticky !important; top:60px; z-index:10;"
-                v-if="$route.params.name && $store.state.nameInfo !== null"
+                v-if="$route.params.keyword && $store.state.keywordInfo !== null"
               >
                 <v-card-title>
-                  {{$route.params.name}}
+                  {{$route.params.keyword}}
                   <v-spacer/>
 
                   <u-dialog
@@ -122,9 +122,9 @@
                     title="즐겨찾기"
                   >
                     <template v-slot:button>
-                      <v-btn icon @click="$refs.starDialog.open(), $store.state.nameInfo.bookmark = !$store.state.nameInfo.bookmark">
+                      <v-btn icon @click="$refs.starDialog.open(), $store.state.keywordInfo.bookmark = !$store.state.keywordInfo.bookmark">
                         
-                        <v-icon v-text="$store.state.nameInfo.bookmark === true ? 'mdi-star' : 'mdi-star-outline'"></v-icon>
+                        <v-icon v-text="$store.state.keywordInfo.bookmark === true ? 'mdi-star' : 'mdi-star-outline'"></v-icon>
                       </v-btn>
                     </template>
 
@@ -153,8 +153,8 @@
                     title="좋아요"
                   >
                     <template v-slot:button>
-                      <v-btn icon @click="$refs.thumbDialog.open(), $store.state.nameInfo.heart = !$store.state.nameInfo.heart">
-                        <v-icon v-text="$store.state.nameInfo.heart === true ? 'mdi-heart' : 'mdi-heart-outline'"></v-icon>
+                      <v-btn icon @click="$refs.thumbDialog.open(), $store.state.keywordInfo.heart = !$store.state.keywordInfo.heart">
+                        <v-icon v-text="$store.state.keywordInfo.heart === true ? 'mdi-heart' : 'mdi-heart-outline'"></v-icon>
                       </v-btn>
                     </template>
 
@@ -211,11 +211,11 @@
 export default {
   head () {
     return {
-      title: this.name,
+      title: this.keyword,
       meta: [{ 
         hid: 'og-title', 
         property: 'og:title', 
-        content:this.name 
+        content:this.keyword 
       }]
     }
   },
@@ -226,8 +226,7 @@ export default {
       selectedMenu:0,
       rightDrawer: false,
       title: 'Uoo name',
-      keyword:'',
-      name:''
+      keyword:''
     }
   },
   created() {
@@ -235,11 +234,11 @@ export default {
     this.pageEffect = true
   },
   mounted() {
-    this.getNameInfo()
+    this.getKeywordInfo()
   },
   watch:{
-    async '$route.params.name'() {
-      this.getNameInfo()
+    async '$route.params.keyword'() {
+      this.getKeywordInfo()
       
     } 
   },
@@ -252,19 +251,19 @@ export default {
       }, 200);
     },
     // 이름 정보 가져오는 함수
-    getNameInfo() {
-      if(this.$route.params.name && this.name !== this.$route.params.name) {
+    getKeywordInfo() {
+      if(this.$route.params.keyword && this.keyword !== this.$route.params.keyword) {
         
         this.loading = true
-        const nameInfo = {
-          name: this.$route.params.name,
+        const keywordInfo = {
+          keyword: this.$route.params.keyword,
           description:'test',
           bookmark:false,
           heart:false,
         }
-        this.$store.commit('SET_NAME_INFO', nameInfo)
+        this.$store.commit('SET_KEYWORD_INFO', keywordInfo)
         setTimeout(()=>{
-          this.name = this.$route.params.name
+          this.keyword = this.$route.params.keyword
           this.loading = false
           this.routingEffect()
         },500)

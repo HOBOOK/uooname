@@ -6,7 +6,7 @@ const common = {
   search(router, keyword, callback) {
     console.log(keyword)
     if(!keyword || keyword === '') return
-    router.push('/names/' + keyword)
+    router.push('/search/' + keyword)
     if(callback && typeof callback === 'function') {
       callback()
     }

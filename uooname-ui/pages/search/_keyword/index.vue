@@ -1,16 +1,16 @@
 <template>
-  <v-row no-gutters v-if="nameInfo !== null">
+  <v-row no-gutters v-if="keywordInfo !== null">
     <v-col cols="12">
       <v-card outlined height="400" class="mb-4 rounded-lg">
         <v-card-title>
           <v-row no-gutters align="center">
-            이름 정보
+            {{$t('keyword_info')}}
             <v-spacer/>
             <span class="grey--text text-caption"> 22.03.21 updated </span>
           </v-row>
         </v-card-title>
         <v-card-text>
-          {{nameInfo.name}}
+          {{keywordInfo.name}}
         </v-card-text>
       </v-card>
     </v-col>
@@ -21,11 +21,11 @@ export default {
   layout: 'content',
   data () {
     return {
-      nameInfo:null
+      keywordInfo:null
     }
   },
   mounted(){
-    this.nameInfo = this.$store.state.nameInfo
+    this.keywordInfo = this.$store.state.keywordInfo
   },
   methods:{
   }

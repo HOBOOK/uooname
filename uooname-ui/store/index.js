@@ -6,15 +6,15 @@ export const strict = false
 
 const store = () => new Vuex.Store({
   state:{
-    nameInfo: null,
+    keywordInfo: null,
     locale: 'ko'
   },
   mutations:{
     SET_TOKEN:function(state, token){
       state.token=token
     },
-    SET_NAME_INFO: (state, nameInfo) => {
-      state.nameInfo = nameInfo
+    SET_KEYWORD_INFO: (state, keywordInfo) => {
+      state.keywordInfo = keywordInfo
     },
     SET_LOCALE: (state, locale) => {
       state.locale = locale
